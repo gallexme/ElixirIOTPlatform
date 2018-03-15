@@ -18,7 +18,7 @@ defmodule UiWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/cards", CardController
+    resources "/apps", AppsController
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,14 @@
+
+<table>
+  <th>ATOM</th>
+  <th>APPNAME</th>
+  <th>VERSION</th>
+  <%= for app <- @apps do %>
+    <tr>
+      <td><%= elem(app,0) %></td>
+      <td><%= elem(app,1) %></td>
+      <td><%= elem(app,2) %></td>
+    </tr>    
+  <% end %>
+</table>
+</div>
