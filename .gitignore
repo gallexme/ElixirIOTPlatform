@@ -1,3 +1,13 @@
 installed_apps/*
 
 buildroot/rpi_custom/nerves_system_rpi\.tar\.gz
+
+buildroot/rpi_custom/build/
+
+buildroot/rpi_custom/host/
+
+buildroot/rpi_custom/staging
+
+buildroot/rpi_custom/images/
+
+buildroot/rpi_custom/target/
