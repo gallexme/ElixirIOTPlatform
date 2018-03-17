@@ -7,10 +7,11 @@ defmodule Firmware.Application do
     import Supervisor.Spec, warn: false
 
     :ok = setup_db(:ui)
-
+    config_opts = Map.new(Application.get_all_env(:firmware))
     # Define workers and child supervisors to be supervised
     children = [
-      # worker(Firmware.Worker, [arg1, arg2, arg3]),
+
+       worker(Firmware.NetworkManager, [config_opts]),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

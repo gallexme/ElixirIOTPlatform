@@ -47,6 +47,13 @@ config :ui, Ui.Repo,
 
 config :ui, ecto_repos: [Ui.Repo]
 
+config :firmware,
+  ifname: "eth0",
+  address_method: :dhcp,
+  mdns_domain: nil,
+  node_name: "iot_platform",
+  node_host: :ip
+
 # Use bootloader to start the main application. See the bootloader
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
@@ -54,6 +61,10 @@ config :bootloader,
   init: [:nerves_runtime, :nerves_network],
   app: :firmware
 
+  config :nerves_firmware_ssh,
+  authorized_keys: [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMyqsoNsTWSuECfDVG0aXBEdGqVx/drKe2Bxn19084MwWcf+ZTHBR+RrDrM/0BxRA+WwJMxsKtRAsySRXMLqScN7OAfmYQOb9WmKqglXu8zsCgeIjDFbGXQU//SWm/U2qXsSZ1XHLi2sTFnmVvjOEbLbXIqFKplok326d3BmNLtZpYfqZbQZzLo+PChuWbFrLjOWdrNovQlXgiH80BL95wgTuz/h3sNE6jREM0bbVCPnp77VfwgnI1sPxw6FPmunlR/CQiHxdJ1T/9PE4R9IczkhRqvtKwxcUS3AGA8/XYpQOMQXvSPDapfWNTAlYD/2V7B8Tdif0X0jHWI8yaMsw3",
+  ]
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations

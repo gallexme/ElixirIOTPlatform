@@ -1,4 +1,8 @@
 %{
   "distillery": {:hex, :distillery, "1.5.2", "eec18b2d37b55b0bcb670cf2bcf64228ed38ce8b046bb30a9b636a6f5a4c0080", [:mix], [], "hexpm"},
+  "elixir_make": {:hex, :elixir_make, "0.4.1", "6628b86053190a80b9072382bb9756a6c78624f208ec0ff22cb94c8977d80060", [:mix], [], "hexpm"},
   "nerves": {:hex, :nerves, "0.11.0", "631693062f2fdad92b2f9d34ac7c230bbda985276b5cd99e6beff7c1a0545326", [:mix], [{:distillery, "~> 1.4", [hex: :distillery, repo: "hexpm", optional: false]}], "hexpm"},
+  "nerves_firmware_ssh": {:hex, :nerves_firmware_ssh, "0.3.2", "2cdf126b5b264ec11c31f58b7f9933445eb065348a0b33c6762f08b1f46e87a9", [:mix], [{:nerves_runtime, "~> 0.4", [hex: :nerves_runtime, repo: "hexpm", optional: false]}], "hexpm"},
+  "nerves_runtime": {:hex, :nerves_runtime, "0.6.0", "b7336e34e65bb6c3792525587b639c4027773496a48c2eba93a78b4e7166a7ed", [:make, :mix], [{:elixir_make, "~> 0.4", [hex: :elixir_make, repo: "hexpm", optional: false]}, {:system_registry, "~> 0.5", [hex: :system_registry, repo: "hexpm", optional: false]}], "hexpm"},
+  "system_registry": {:hex, :system_registry, "0.7.0", "cd3aaf2c15392fa60f93869dde49f536fcf60e54f3b15db737e7d4ebcac108f4", [:mix], [], "hexpm"},
 }

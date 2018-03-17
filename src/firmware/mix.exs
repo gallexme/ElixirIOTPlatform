@@ -57,7 +57,8 @@ defmodule Firmware.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:nerves, "~> 0.9", runtime: false}] ++ deps(@target)
+    [{:nerves, "~> 0.9", runtime: false},
+    {:nerves_firmware_ssh, "~> 0.2"},] ++ deps(@target)
   end
   # Specify target specific dependencies
   def deps("host"), do: []

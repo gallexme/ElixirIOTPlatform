@@ -1,0 +1,15 @@
+Buildroot: 2018.02
+07c2eb2d4d5bf5548116bef7bb7eb5f2f361311957c34584cf938a250565159a  ./buildroot/0001-erlang-clean-up-target-installation.patch
+0231142b32f10af59788fe3d6d5d37564127fd1e9bdae0edf8e7a48a517ceae3  ./buildroot/0002-mtools-Disable-iconv-use-on-target.patch
+a6d7174f94a2c3e3dce8585100f73750f13c7b76fc531c67c81f12b55974404a  ./buildroot/0003-libarchive-disable-lz4.patch
+339573c22eb122ec4d4e931eb8b095c88bbbca1857501b405297642db8277d98  ./buildroot/0004-NERVES_DEFCONFIG_DIR-support.patch
+f149ffe2e5c11c4b4581bd5f881c6a7fddeb76ba1d85028f3f449d6ab088e287  ./buildroot/0005-Add-customizable-linux-logo.patch
+f1c6d4b62c5e9784ef937de0214804b6578f67efeb864efa1257a6b552c09f65  ./buildroot/0006-kernel-wireless-regdb-install-regdb-in-kernel.patch
+433a37cfb79750389de7d94a968df5d7e3c68a82041d6654bf49d0eaf36d55e2  ./buildroot/0007-util-linux-add-ldattach-option.patch
+9cc1c9b87d5e612ce8f31e741cafe808fcc03b6434cb732fbf2382cde34909d6  ./buildroot/0008-erlang-force-configure-options.patch
+eeeb75fe440e7f5f5ccabd6adba66538dbaf908925bd022a9305b42ce9b919ec  ./buildroot/0009-fwup-bump-to-v1.0.0.patch
+99b24c600048e13ba0a135f9ee7dc93f63154247db5c17e660688a8c700e42a3  ./buildroot/0010-erlang-bump-to-otp-20.3.1.patch
+2fb3166ea190b3f076ba2f0463f7415f5ade92d2875cea56558b34e60e7deb47  ./buildroot/0011-rpi-firmware-support-kernel-selection.patch
+64829bbf6cfd21dd74aad3076f322224fde229661d7448f587928f4836911808  ./buildroot/0012-linux-add-BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF.patch
+fd5ce15f7afc4b58fe7660402a7de20adf7de536852123911e7ee6b6bfd89b0a  ./buildroot/0013-linux-fix-passing-of-host-CFLAGS-and-LDFLAGS.patch
+0867ab6d70f6ae19ffe4e2fdb39a2b60a7d944fd2742702c0f73b03d36ab74df  ./e2fsprogs/0001-use-uuid-to-avoid-blocking-random-call.patch

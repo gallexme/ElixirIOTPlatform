@@ -1,1 +1,3 @@
 installed_apps/*
+
+buildroot/rpi_custom/nerves_system_rpi\.tar\.gz

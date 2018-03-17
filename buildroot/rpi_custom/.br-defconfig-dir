@@ -1,0 +1,1 @@
+NERVES_DEFCONFIG_DIR ?= /home/fabi/Schreibtisch/Dev/ElixirIOTPlatform/buildroot/nerves_system_rpi
