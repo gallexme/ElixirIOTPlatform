@@ -20,7 +20,9 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css"
+      joinTo: "css/app.css",
+      joinTo: "css/bootstrap.css",
+      joinTo: "css/bootstrap-vue.css"
     },
     templates: {
       joinTo: "js/app.js"
@@ -44,6 +46,12 @@ exports.config = {
 
   // Configure your plugins
   plugins: {
+    sass: {
+      options: {
+        includePaths: ["node_modules/bootstrap/scss","node_modules/bootstrap-vue/dist"], // Tell sass-brunch where to look for files to @import
+        precision: 8 // Minimum precision required by bootstrap-sass
+      }
+    },
     vue: {
       extractCSS: true,
       out: '../priv/static/css/components.css'

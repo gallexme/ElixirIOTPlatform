@@ -21,8 +21,22 @@ import "phoenix_html"
 // import socket from "./socket"
 /* Vue */
 import Vue from 'vue'
+import VueRouter from 'vue-router'
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(VueRouter)
+Vue.use(BootstrapVue)
+
+const routes = [
+  { path: '/', component: App },
+  { path: '/bar', component: App }
+]
+
 Vue.config.productionTip = false
 
+const router = new VueRouter({
+  routes // short for `routes: routes`
+})
 
 /* App component */
 import App from './components/App'
@@ -30,5 +44,6 @@ import App from './components/App'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   render: h => h(App)
 })

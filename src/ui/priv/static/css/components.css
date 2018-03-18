@@ -1,13 +1,13 @@
-/* line 19, js/components/App.vue */
+/* line 35, js/components/App.vue */
 html {
   position: relative;
   min-height: 100%; }
 
-/* line 23, js/components/App.vue */
+/* line 39, js/components/App.vue */
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px; }
 
-/* line 27, js/components/App.vue */
+/* line 43, js/components/App.vue */
 .app-content {
   padding: 60px 15px 0; }
