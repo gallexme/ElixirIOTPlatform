@@ -11,3 +11,7 @@ buildroot/rpi_custom/staging
 buildroot/rpi_custom/images/
 
 buildroot/rpi_custom/target/
+
+src/ui/_build/
+
+src/ui/deps/

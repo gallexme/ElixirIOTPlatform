@@ -42,6 +42,7 @@ defmodule Ui.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:app_system, path: "../app_system"},
+      {:porcelain, "~> 2.0"}
     ]
   end
 

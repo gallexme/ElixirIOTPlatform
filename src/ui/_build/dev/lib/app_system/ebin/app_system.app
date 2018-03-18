@@ -1,9 +1,0 @@
-{application,app_system,
-             [{applications,[kernel,stdlib,elixir,logger,common]},
-              {description,"app_system"},
-              {modules,['Elixir.AppSystem','Elixir.AppSystem.Application',
-                        'Elixir.AppSystem.Discovery']},
-              {registered,[]},
-              {vsn,"0.1.0"},
-              {extra_applications,[logger]},
-              {mod,{'Elixir.AppSystem.Application',[]}}]}.

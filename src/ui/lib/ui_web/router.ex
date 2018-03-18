@@ -18,6 +18,8 @@ defmodule UiWeb.Router do
 
     get "/", PageController, :index
 
+    get "/apps/php", AppsController, :php
+
     resources "/apps", AppsController
   end
 
