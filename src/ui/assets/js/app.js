@@ -19,3 +19,16 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+/* Vue */
+import Vue from 'vue'
+Vue.config.productionTip = false
+
+
+/* App component */
+import App from './components/App'
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})

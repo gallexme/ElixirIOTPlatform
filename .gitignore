@@ -15,3 +15,5 @@ buildroot/rpi_custom/target/
 src/ui/_build/
 
 src/ui/deps/
+
+src/ui/assets/node_modules/

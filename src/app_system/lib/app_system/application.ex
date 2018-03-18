@@ -119,7 +119,7 @@ defmodule AppSystem.Discovery do
   end
 
   def handle_info(:heartbeat, state) do
-    IO.puts("HELLO")
+    #IO.puts("HELLO")
     discover_apps()
     schedule_next_heartbeat()
     {:noreply, state}

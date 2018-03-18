@@ -44,6 +44,10 @@ exports.config = {
 
   // Configure your plugins
   plugins: {
+    vue: {
+      extractCSS: true,
+      out: '../priv/static/css/components.css'
+    },
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/vendor/]
