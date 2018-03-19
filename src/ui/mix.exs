@@ -42,10 +42,12 @@ defmodule Ui.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:app_system, path: "../app_system"},
+      {:firmware_common, path: "../firmware_common"},
       {:porcelain, "~> 2.0"}
-    ]
+    ] ++  env_deps(Mix.env)
   end
-
+  defp env_deps(:prod), do: []
+  defp env_deps(:dev), do: [{:sentry, "~> 6.0.0"}]
   # Aliases are shortcuts or tasks specific to the current project.
   # For example, to create, migrate and run the seeds file at once:
   #

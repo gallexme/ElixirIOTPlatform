@@ -27,11 +27,13 @@ defmodule ValueGen.Worker do
 
   def init(state) do
     schedule_work() # Schedule work to be performed at some point
+
     {:ok, state}
   end
 
   def handle_info(:work, state) do
     # Do the work you desire here
+    Firmware.Common.broadcast({"valuegen:1",:new_value, "wow"})
     IO.puts("WOW SUCH APP NEW")
     schedule_work() # Reschedule once more
     {:noreply, state}

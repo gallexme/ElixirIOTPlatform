@@ -1,6 +1,9 @@
 defmodule UiWeb.Router do
   use UiWeb, :router
-
+  if Mix.env == :dev do
+    use Plug.ErrorHandler
+    use Sentry.Plug
+  end
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session

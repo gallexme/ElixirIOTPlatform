@@ -57,9 +57,11 @@ defmodule Firmware.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:nerves, "~> 0.9", runtime: false},
-    {:nerves_firmware_ssh, "~> 0.2"},
-    {:mdns, "~> 1.0"},] ++ deps(@target)
+    [
+
+      {:ui, path: "../ui"},
+      {:firmware_common, path: "../firmware_common"},
+      {:mdns, "~> 1.0"},] ++ deps(@target)  ++ env_deps(Mix.env)
   end
   # Specify target specific dependencies
   def deps("host"), do: []
@@ -68,10 +70,12 @@ defmodule Firmware.Mixfile do
       {:bootloader, "~> 0.1"},
       {:nerves_runtime, "~> 0.4"},
       {:nerves_network, "~> 0.3"},
-      {:ui, path: "../ui"},
+      {:nerves, "~> 0.9", runtime: false},
+      {:nerves_firmware_ssh, "~> 0.2"}
     ] ++ system(target)
   end
-
+  defp env_deps(:prod), do: []
+  defp env_deps(:dev), do: [{:sentry, "~> 6.0.0"}]
   defp system("rpi3"), do: [{:nerves_system_rpi3, ">= 0.0.0", runtime: false}]
   defp system("rpi"), do: [{:nerves_system_rpi, ">= 0.0.0", runtime: false}]
   defp system(target), do: Mix.raise "Unknown MIX_TARGET: #{target}"

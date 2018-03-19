@@ -36,8 +36,9 @@ config :ui, UiWeb.Endpoint,
   secret_key_base: "RzmiWYDzEdA6n6X+liCFJoQGpfr1pp079Di0zddmCLSRNBBW4asl23YfxNbJnzR4",
   root: Path.dirname(__DIR__),
   server: true,
+  check_origin: false,
   render_errors: [accepts: ~w(html json)],
-  pubsub: [name: Ui.PUbSub,
+  pubsub: [name: Firmware.Common.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 config :ui, Ui.Repo,
@@ -70,3 +71,12 @@ config :bootloader,
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
+config :sentry,
+  dsn: "https://d304ccbf804d4014b37c09eb47d2818e:8ec7d872b90c4b49ad1dafef2225ced0@sentry.io/306264",
+  environment_name: Mix.env,
+  enable_source_code_context: true,
+  root_source_code_path: File.cwd!<>"/../",
+  tags: %{
+    env: "dev"
+  },
+  included_environments: [:dev]

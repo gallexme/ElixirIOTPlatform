@@ -27,7 +27,7 @@ defmodule UiWeb.AppsController do
     alias Porcelain.Result
 
     %Result{out: output, status: status} =
-      Porcelain.shell("php " <> AppSystem.Discovery.get_apps_path() <> "/testapp.php")
+      Porcelain.shell("php " <> AppSystem.Discovery.get_apps_path() <> "/test_php/app.php")
 
     render(conn, "php.html", result: output)
   end
