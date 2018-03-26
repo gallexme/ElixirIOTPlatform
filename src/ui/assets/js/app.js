@@ -18,32 +18,24 @@ import "phoenix_html"
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
-// import socket from "./socket"
-/* Vue */
+import router from './router'
+import { socket, channel } from "./socket"
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import BootstrapVue from 'bootstrap-vue'
 
-Vue.use(VueRouter)
+import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
-const routes = [
-  { path: '/', component: App },
-  { path: '/bar', component: App }
-]
-
-Vue.config.productionTip = false
-
-const router = new VueRouter({
-  routes // short for `routes: routes`
-})
+Vue.config.productionTip = true
 
 /* App component */
-import App from './components/App'
+import App from './App.vue'
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  render: h => h(App)
+  socket,
+  channel,
+  components: { App },
+  render: h => h(App),
 })

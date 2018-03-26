@@ -1,13 +1,48 @@
-/* line 35, js/components/App.vue */
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  padding-top: 4em;
+}
+h1[data-v-8bfa5a3e], h2[data-v-8bfa5a3e] {
+  font-weight: normal;
+}
+
+ul[data-v-8bfa5a3e] {
+  list-style-type: none;
+  padding: 0;
+}
+
+li[data-v-8bfa5a3e] {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a[data-v-8bfa5a3e] {
+  color: #42b983;
+}
+.ui.inverted.menu {
+    border: 0 solid transparent;
+    background: #252627df;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.ui.fixed.menu .toc.item {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .ui.fixed.menu .item.only {
+    display: none !important;
+  }
+  .ui.fixed.menu .toc.item {
+    display: block;
+  }
+}
+/* line 20, js/pages/Index.vue */
 html {
   position: relative;
   min-height: 100%; }
-
-/* line 39, js/components/App.vue */
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px; }
-
-/* line 43, js/components/App.vue */
-.app-content {
-  padding: 60px 15px 0; }

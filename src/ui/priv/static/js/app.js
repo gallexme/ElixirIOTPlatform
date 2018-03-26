@@ -29339,30 +29339,78 @@ if (inBrowser) {
 module.exports = Vue;
   })();
 });
-require.register("js/app.js", function(exports, require, module) {
+require.register("js/App.vue", function(exports, require, module) {
+;(function(){
 'use strict';
 
-require('phoenix_html');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _vue = require('vue');
+var _NavBar = require('./components/NavBar');
+
+var _NavBar2 = _interopRequireDefault(_NavBar);
+
+var _socket = require('./socket');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  name: 'app',
+  components: { NavBar: _NavBar2.default },
+  mounted: function mounted() {
+    _socket.channel.push("shout", { body: "App mounted" }, 10000);
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('nav-bar'),_vm._v(" "),_c('router-view')],1)}
+__vue__options__.staticRenderFns = []
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2c4b4dc9", __vue__options__)
+  } else {
+    hotAPI.rerender("data-v-2c4b4dc9", __vue__options__)
+  }
+})()}
+});
+
+;require.register("js/app.js", function(exports, require, module) {
+"use strict";
+
+require("phoenix_html");
+
+var _router = require("./router");
+
+var _router2 = _interopRequireDefault(_router);
+
+var _socket = require("./socket");
+
+var _vue = require("vue");
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _vueRouter = require('vue-router');
-
-var _vueRouter2 = _interopRequireDefault(_vueRouter);
-
-var _bootstrapVue = require('bootstrap-vue');
+var _bootstrapVue = require("bootstrap-vue");
 
 var _bootstrapVue2 = _interopRequireDefault(_bootstrapVue);
 
-var _App = require('./components/App');
+var _App = require("./App.vue");
 
 var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Brunch automatically concatenates all files in your
+// Import local files
+//
+// Local files can be imported directly using relative
+// paths "./socket" or full ones "web/static/js/socket".
+
+_vue2.default.use(_bootstrapVue2.default); // Brunch automatically concatenates all files in your
 // watched paths. Those paths can be configured at
 // config.paths.watched in "brunch-config.js".
 //
@@ -29375,25 +29423,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-_vue2.default.use(_vueRouter2.default);
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
 
-// import socket from "./socket"
-/* Vue */
-
-_vue2.default.use(_bootstrapVue2.default);
-
-var routes = [{ path: '/', component: _App2.default }, { path: '/bar', component: _App2.default }];
-
-_vue2.default.config.productionTip = false;
-
-var router = new _vueRouter2.default({
-  routes: routes // short for `routes: routes`
-});
+_vue2.default.config.productionTip = true;
 
 /* App component */
 
@@ -29401,7 +29433,10 @@ var router = new _vueRouter2.default({
 /* eslint-disable no-new */
 new _vue2.default({
   el: '#app',
-  router: router,
+  router: _router2.default,
+  socket: _socket.socket,
+  channel: _socket.channel,
+  components: { App: _App2.default },
   render: function render(h) {
     return h(_App2.default);
   }
@@ -29409,7 +29444,73 @@ new _vue2.default({
 
 });
 
-require.register("js/components/App.vue", function(exports, require, module) {
+require.register("js/components/Hello.vue", function(exports, require, module) {
+;(function(){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _socket = require('../socket');
+
+exports.default = {
+  name: 'hello',
+  data: function data() {
+    return {
+      msg: 'Oh hi World'
+    };
+  },
+  mounted: function mounted() {
+    _socket.channel.push("shout", { body: "Hello mounted" }, 10000);
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"hello"},[_c('h1',[_vm._v(_vm._s(_vm.msg))]),_vm._v(" "),_c('sui-button',{attrs:{"content":"Like","icon":"heart","label-position":"left"}},[_c("sui-label",{tag:"a",attrs:{"slot":"label","basic":"","pointing":"right"},slot:"label"},[_vm._v("\n      2,048\n    ")])])],1)}
+__vue__options__.staticRenderFns = []
+__vue__options__._scopeId = "data-v-8bfa5a3e"
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8bfa5a3e", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-8bfa5a3e", __vue__options__)
+  }
+})()}
+});
+
+;require.register("js/components/NavBar.vue", function(exports, require, module) {
+;(function(){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('b-navbar',{attrs:{"toggleable":"md","type":"dark","fixed":"top","variant":"dark"}},[_c('b-navbar-toggle',{attrs:{"target":"nav_collapse"}}),_vm._v(" "),_c('b-navbar-brand',{attrs:{"href":"#"}},[_vm._v("El'IOT'iX")]),_vm._v(" "),_c('b-collapse',{attrs:{"is-nav":"","id":"nav_collapse"}},[_c('b-navbar-nav',[_c("b-nav-item",{tag:"router-link",attrs:{"to":"/","href":"#"}},[_vm._v("Home")]),_vm._v(" "),_c("b-nav-item",{tag:"router-link",attrs:{"to":"/hello","href":"#"}},[_vm._v("Hello")])],1),_vm._v(" "),_c('b-navbar-nav',{staticClass:"ml-auto"},[_c('b-nav-item-dropdown',{attrs:{"right":""}},[_c('template',{slot:"button-content"},[_c('em',[_vm._v("User")])]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("Profile")]),_vm._v(" "),_c('b-dropdown-item',{attrs:{"href":"#"}},[_vm._v("Signout")])],2)],1)],1)],1)}
+__vue__options__.staticRenderFns = []
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3bbe2cf1", __vue__options__)
+  } else {
+    hotAPI.rerender("data-v-3bbe2cf1", __vue__options__)
+  }
+})()}
+});
+
+;require.register("js/pages/Index.vue", function(exports, require, module) {
 ;(function(){
 'use strict';
 
@@ -29426,30 +29527,61 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('b-jumbotron',[_c('template',{slot:"header"},[_vm._v("\n      Bootstrap Vue\n    ")]),_vm._v(" "),_c('template',{slot:"lead"},[_vm._v("\n      This is a simple hero unit, a simple jumbotron-style component for\n      calling extra attention to featured content or information.\n    ")]),_vm._v(" "),_c('hr',{staticClass:"my-4"}),_vm._v(" "),_c('p',[_vm._v("\n      It uses utility classes for typography and spacing to space content\n      out within the larger container.\n    ")]),_vm._v(" "),_c('b-btn',{attrs:{"variant":"primary","href":"#"}},[_vm._v("Do Something")]),_vm._v(" "),_c('b-btn',{attrs:{"variant":"success","href":"#"}},[_vm._v("Do Something Else")])],2)],1)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"index"},[_vm._v("\n  Index.vue\n")])}
 __vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6a6fa670", __vue__options__)
+    hotAPI.createRecord("data-v-75bee36f", __vue__options__)
   } else {
-    hotAPI.reload("data-v-6a6fa670", __vue__options__)
+    hotAPI.rerender("data-v-75bee36f", __vue__options__)
   }
 })()}
 });
 
-;require.register("js/routes.js", function(exports, require, module) {
+;require.register("js/router.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = {
-  '/': 'Home',
-  '/about': 'About'
-};
+
+var _vue = require('vue');
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _vueRouter = require('vue-router');
+
+var _vueRouter2 = _interopRequireDefault(_vueRouter);
+
+var _Index = require('./pages/Index');
+
+var _Index2 = _interopRequireDefault(_Index);
+
+var _Hello = require('./components/Hello');
+
+var _Hello2 = _interopRequireDefault(_Hello);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* Pages */
+_vue2.default.use(_vueRouter2.default);
+/* Components */
+exports.default = new _vueRouter2.default({
+  routes: [{
+    path: '/',
+    name: 'Index',
+    component: _Index2.default
+  }, {
+    path: '/hello',
+    name: 'Hello',
+    component: _Hello2.default
+  }],
+  linkActiveClass: "active", // active class for non-exact links.
+  linkExactActiveClass: "active" // active class for *exact* links.
+});
 
 });
 
@@ -29459,6 +29591,7 @@ require.register("js/socket.js", function(exports, require, module) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.channel = undefined;
 
 var _phoenix = require("phoenix");
 
@@ -29508,7 +29641,7 @@ var socket = new _phoenix.Socket("/socket", { params: { token: window.userToken 
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
 
-// NOTE: The contents of this file will only be executed if
+// note: The contents of this file will only be executed if
 // you uncomment its entry in "assets/js/app.js".
 
 // To use Phoenix channels, the first step is to import Socket
@@ -29516,13 +29649,23 @@ var socket = new _phoenix.Socket("/socket", { params: { token: window.userToken 
 socket.connect();
 
 // Now that you are connected, you can join channels with a topic:
-var channel = socket.channel("topic:subtopic", {});
+var channel = exports.channel = socket.channel("channel_values:lobby", {});
+
+channel.on("shout", function (msg) {
+  return console.log("Got message", msg);
+});
+
 channel.join().receive("ok", function (resp) {
   console.log("Joined successfully", resp);
 }).receive("error", function (resp) {
   console.log("Unable to join", resp);
 });
 
+channel.push("shout", { body: "TEST" }, 10000).receive("ok", function (resp) {
+  console.log("shout successfully", resp);
+}).receive("error", function (resp) {
+  console.log("Unable to shout", resp);
+});
 exports.default = socket;
 
 });

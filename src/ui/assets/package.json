@@ -22,6 +22,7 @@
     "transform-runtime": "0.0.0",
     "uglify-js-brunch": "2.10.0",
     "vue": "^2.5.16",
-    "vue-brunch": "^2.0.1"
+    "vue-brunch": "^2.0.1",
+    "vue-router": "^3.0.1"
   }
 }
